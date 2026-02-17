@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirTronics - Digital Visiting Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .card-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px; /* Mobile screen width */
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #0284c7, #0ea5e9);
+            height: 150px;
+            width: 100%;
+        }
+        .profile-section {
+            text-align: center;
+            margin-top: -60px;
+            padding: 0 20px;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            background-color: #f8fafc;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 50px;
+            color: #0284c7;
+        }
+        .business-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 15px 0 5px 0;
+        }
+        .person-name {
+            font-size: 18px;
+            color: #475569;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        .services {
+            font-size: 14px;
+            color: #0284c7;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: #e0f2fe;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .address {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        /* Icon Grid just like your example */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 15px;
+            padding: 0 25px;
+            margin-bottom: 40px;
+        }
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 500;
+            gap: 8px;
+        }
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        /* Colors for different buttons */
+        .bg-call { background: #0284c7; }
+        .bg-location { background: #ef4444; }
+        .bg-whatsapp { background: #22c55e; }
+        .bg-email { background: #f59e0b; }
+        .bg-save { background: #8b5cf6; }
+        .bg-share { background: #64748b; }
+        
+/* Brands section */
+        .brands-section {
+            padding: 25px;
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Shows 3 logos per row */
+            gap: 12px;
+            justify-items: center;
+            align-items: center;
+        }
+        .brand-logo {
+            width: 100%;
+            max-width: 80px;
+            height: 45px; /* Keeps all logos a uniform height */
+            object-fit: contain; /* Prevents the logos from stretching out of shape */
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        /* Inquiry Form */
+        .inquiry-section {
+            padding: 0 25px 40px 25px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="header-bg"></div>
+        
+        <div class="profile-section">
+            <div class="profile-img">
+                <i class="fas fa-snowflake"></i> </div>
+            <h1 class="business-name">AirTronics</h1>
+            <h2 class="person-name">Paresh Patel</h2>
+            <div class="services">Sales | Service | Repair</div>
+            <p class="address">
+                <i class="fas fa-map-marker-alt" style="color:#ef4444; margin-right:5px;"></i>
+                A-Gf/16, Swaminarayan Avenue, <br>Nr. AEC overbridge, 132ft. Ring Road, <br>Naranpura, Ahmedabad-13
+            </p>
+        </div>
+
+        <div class="action-grid">
+            <a href="tel:+919824691056" class="action-btn">
+                <div class="icon-circle bg-call"><i class="fas fa-phone-alt"></i></div>
+                <span>Call</span>
+            </a>
+            <a href="https://maps.app.goo.gl/W37ZxnT6qMFa8JEi8" target="_blank" class="action-btn">
+                <div class="icon-circle bg-location"><i class="fas fa-map-marker-alt"></i></div>
+                <span>Location</span>
+            </a>
+            <a href="https://wa.me/919824691056" target="_blank" class="action-btn">
+                <div class="icon-circle bg-whatsapp"><i class="fab fa-whatsapp"></i></div>
+                <span>WhatsApp</span>
+            </a>
+            <a href="mailto:?subject=AirTronics Inquiry" class="action-btn">
+                <div class="icon-circle bg-email"><i class="fas fa-envelope"></i></div>
+                <span>Email</span>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="icon-circle bg-save"><i class="fas fa-user-plus"></i></div>
+                <span>Save Contact</span>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="icon-circle bg-share"><i class="fas fa-share-alt"></i></div>
+                <span>Share</span>
+            </a>
+        </div>
+        <div class="brands-section">
+            <h3 class="section-title">Brands We Deal In</h3>
+            <div class="brands-grid">
+                <img src="logos/O general.png" alt="O General" class="brand-logo">
+                <img src="logos/Mitsubishi.png" alt="Mitsubishi" class="brand-logo">
+                <img src="logos/Daikin.png" alt="Daikin" class="brand-logo">
+                <img src="logos/Panasonic.png" alt="Panasonic" class="brand-logo">
+                <img src="logos/Voltas.png" alt="Voltas" class="brand-logo">
+                <img src="logos/Blue Star.png" alt="Blue Star" class="brand-logo">
+                <img src="logos/Hitachi.png" alt="Hitachi" class="brand-logo">
+                <img src="logos/samsung.png" alt="Samsung" class="brand-logo">
+                <img src="logos/Toshiba.png" alt="Toshiba" class="brand-logo">
+                <img src="logos/Haier.png" alt="Haier" class="brand-logo">
+                <img src="logos/Godrej.png" alt="Godrej" class="brand-logo">
+            </div>
+        </div>
+        <div class="inquiry-section">
+            <h3 class="section-title">Inquiry</h3>
+            <div class="form-group">
+                <input type="text" id="custName" placeholder="Name *">
+            </div>
+            <div class="form-group">
+                <input type="tel" id="custNumber" placeholder="Mobile number *">
+            </div>
+            <div class="form-group">
+                <textarea id="custMessage" rows="4" placeholder="Message"></textarea>
+            </div>
+            <button class="submit-btn" onclick="sendToWhatsApp()">Submit</button>
+        </div>
+    </div> <script>
+        function sendToWhatsApp() {
+            // Get the text the customer typed in
+            var name = document.getElementById('custName').value;
+            var number = document.getElementById('custNumber').value;
+            var message = document.getElementById('custMessage').value;
+
+            // Check if they left the required fields blank
+            if(name === "" || number === "") {
+                alert("Please fill in your Name and Mobile Number.");
+                return;
+            }
+
+            // Create the WhatsApp message format
+            var whatsappText = "Hello AirTronics! I have a new inquiry from your digital card.%0A%0A" 
+                             + "*Name:* " + name + "%0A" 
+                             + "*Mobile:* " + number + "%0A" 
+                             + "*Message:* " + message;
+
+            // Create the final link with your specific phone number
+            var whatsappURL = "https://wa.me/919824691056?text=" + whatsappText;
+
+            // Open WhatsApp in a new tab/app
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
